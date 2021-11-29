@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="226" pageHeight="623" columnWidth="226" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="a17fb697-daa7-40e9-9e27-3894e7fedcb1">
+	<property name="ireport.zoom" value="4.545454545454545"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="noNota" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     sales_barang.`lastinsetid` AS sales_barang_lastinsetid,
+     sales_barang.`pelanggan` AS sales_barang_pelanggan,
+     sales_barang.`nama_barang` AS sales_barang_nama_barang,
+     sales_barang.`barcode` AS sales_barang_barcode,
+     sales_barang.`jumlah` AS sales_barang_jumlah,
+     sales_barang.`hargatotal` AS sales_barang_hargatotal,
+     sales_barang.`harga` AS sales_barang_harga,
+     sales_barang.`satuan` AS sales_barang_satuan,
+     sales_barang.`subtotal` AS sales_barang_subtotal,
+     sales_barang.`kembalian` AS sales_barang_kembalian,
+     sales_barang.`hutang_sebelumnya` AS sales_barang_hutang_sebelumnya,
+     sales_barang.`idjual` AS sales_barang_idjual,
+     sales.`idsales` AS sales_idsales,
+     sales.`nama_pelanggan` AS sales_nama_pelanggan,
+     sales.`date` AS sales_date,
+     sales.`subtotal` AS sales_subtotal,
+     sales.`bayar` AS sales_bayar,
+     sales.`balance` AS sales_balance,
+     sales.`hutang` AS sales_hutang
+FROM
+     `sales_barang` sales_barang INNER JOIN
+     `sales` sales ON  sales_barang.`lastinsetid` =  sales.`idsales` WHERE sales.`idsales`= $P{noNota}]]>
+	</queryString>
+	<field name="sales_barang_lastinsetid" class="java.lang.Integer"/>
+	<field name="sales_barang_pelanggan" class="java.lang.String"/>
+	<field name="sales_barang_nama_barang" class="java.lang.String"/>
+	<field name="sales_barang_barcode" class="java.lang.String"/>
+	<field name="sales_barang_jumlah" class="java.lang.String"/>
+	<field name="sales_barang_hargatotal" class="java.lang.Integer"/>
+	<field name="sales_barang_harga" class="java.lang.String"/>
+	<field name="sales_barang_satuan" class="java.lang.String"/>
+	<field name="sales_barang_subtotal" class="java.lang.String"/>
+	<field name="sales_barang_kembalian" class="java.lang.String"/>
+	<field name="sales_barang_hutang_sebelumnya" class="java.lang.String"/>
+	<field name="sales_barang_idjual" class="java.lang.Integer"/>
+	<field name="sales_idsales" class="java.lang.Integer"/>
+	<field name="sales_nama_pelanggan" class="java.lang.String"/>
+	<field name="sales_date" class="java.lang.String"/>
+	<field name="sales_bayar" class="java.lang.String"/>
+	<field name="sales_balance" class="java.lang.String"/>
+	<field name="sales_hutang" class="java.lang.String"/>
+	<field name="sales_subtotal" class="java.lang.String"/>
+	<group name="sales">
+		<groupFooter>
+			<band height="69">
+				<textField>
+					<reportElement x="107" y="4" width="110" height="15" uuid="07588197-571b-4729-be29-582aa5e8ab3f"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sales_subtotal}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="58" y="4" width="49" height="15" uuid="31c411ef-0d38-46df-a872-4cdc3d7151ed"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Subtotal    =]]></text>
+				</staticText>
+				<line>
+					<reportElement x="93" y="0" width="115" height="1" uuid="d14ee283-e092-4a07-8709-5b6070e5f24f"/>
+				</line>
+				<textField>
+					<reportElement x="107" y="19" width="103" height="15" uuid="f8517fea-cb71-460e-a5b4-d8c13e6f5f6c"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sales_barang_hutang_sebelumnya}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="14" y="19" width="93" height="15" uuid="ab5926d5-e02f-45fe-b5e3-3efccaa961b2"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Hutang Sebelumnya     =]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="14" y="34" width="93" height="15" uuid="17b93418-5cce-48a3-914a-51b522c3d8b1"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Hutang Hari Ini              =]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="108" y="34" width="102" height="15" uuid="e3edd710-856d-41ae-afab-3a0d71b0d58e"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sales_hutang}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="108" y="49" width="102" height="20" uuid="ccbc90c1-c1d1-4b2c-9139-b44716b8ef55"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sales_balance}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="11" y="49" width="96" height="20" uuid="f2fec9dc-08a9-4f73-bfe2-80d67c5aa775"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[                        Kembali  =]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="68" y="0" width="86" height="11" uuid="234b399c-f055-434b-9d8f-0ef7eccfb38c"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOKO LINA SIGONG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="68" y="11" width="86" height="11" uuid="b8160e33-96d3-4f74-a1e1-7d13c442f495"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[www.tokolina.my.id]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="24" width="212" height="1" uuid="491a187e-6e84-4fd4-b31c-c41428b6321a"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="72" y="11" width="100" height="11" uuid="74325555-d25b-4140-869a-95236533a823"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sales_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="0" width="100" height="11" uuid="c4e86898-4dd0-4198-bee8-f38bf6c00cad"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sales_barang_lastinsetid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="22" width="100" height="11" uuid="bbdcee72-2375-4f0a-a790-de06275e511f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sales_nama_pelanggan}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="35" width="212" height="1" uuid="43928cab-fb07-4617-9677-2a5de18eef2c"/>
+			</line>
+			<staticText>
+				<reportElement x="4" y="0" width="68" height="11" uuid="fa1cb835-4096-43f3-baa3-a0234c146343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[No Transaksi    =]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="11" width="68" height="11" uuid="aa5f4b4c-0c4c-45f1-a768-d61e4006b432"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Tgl Transaksi    =]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="22" width="68" height="11" uuid="b821c656-6746-44eb-9d59-d806143201ec"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Konsumen        =]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="5" y="3" width="212" height="15" uuid="3c1585c8-f827-4dfc-a062-24913b7889d5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sales_barang_nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="18" width="14" height="15" uuid="024d5440-cb3d-41a9-b999-9c9b60bf2eb2"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sales_barang_jumlah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="18" width="26" height="15" uuid="481171f4-756f-49cb-9d38-028e0a815c7b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sales_barang_satuan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="45" y="18" width="11" height="13" uuid="4a539635-bee2-4a60-afa8-25b3331a296f"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="112" y="18" width="105" height="15" uuid="4c85c9d0-b8ad-4d3c-9db0-b5831e3429a0"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sales_barang_hargatotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="18" width="35" height="15" uuid="2e4e8e73-ddd8-49fd-a361-79e93bfe8ac7"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sales_barang_harga}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="98" y="18" width="11" height="13" uuid="d20f7156-7bb4-4981-aedc-589ad3728fe4"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+</jasperReport>
