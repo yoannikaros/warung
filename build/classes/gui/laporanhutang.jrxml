@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="226" pageHeight="566" columnWidth="226" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="829d3a98-0f6a-44ea-a362-278b7fb3f6dc">
+	<property name="ireport.zoom" value="6.72749994932561"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     riwayathutang.`idriwayat` AS riwayathutang_idriwayat,
+     riwayathutang.`nama` AS riwayathutang_nama,
+     riwayathutang.`tanggal` AS riwayathutang_tanggal,
+     riwayathutang.`hutang` AS riwayathutang_hutang,
+     riwayathutang.`dibayar` AS riwayathutang_dibayar
+FROM
+     `riwayathutang` riwayathutang]]>
+	</queryString>
+	<field name="riwayathutang_idriwayat" class="java.lang.Integer"/>
+	<field name="riwayathutang_nama" class="java.lang.String"/>
+	<field name="riwayathutang_tanggal" class="java.lang.String"/>
+	<field name="riwayathutang_hutang" class="java.lang.String"/>
+	<field name="riwayathutang_dibayar" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="10" splitType="Stretch">
+			<textField>
+				<reportElement x="42" y="0" width="88" height="10" uuid="45ee2328-4b48-48d8-b638-f0f6f5da4ced"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{riwayathutang_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="0" width="96" height="10" uuid="95576791-94b6-4e1b-99a2-8ba550b6668e"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{riwayathutang_hutang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="42" height="10" uuid="bb21dd1e-a72f-4e24-96d0-a3c0cd22a71b"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{riwayathutang_tanggal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

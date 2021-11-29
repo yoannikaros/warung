@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="226" pageHeight="623" columnWidth="226" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="a17fb697-daa7-40e9-9e27-3894e7fedcb1">
+	<property name="ireport.zoom" value="4.545454545454545"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="noNota" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     sales_barang.`lastinsetid` AS sales_barang_lastinsetid,
+     sales_barang.`pelanggan` AS sales_barang_pelanggan,
+     sales_barang.`nama_barang` AS sales_barang_nama_barang,
+     sales_barang.`barcode` AS sales_barang_barcode,
+     sales_barang.`jumlah` AS sales_barang_jumlah,
+     sales_barang.`hargatotal` AS sales_barang_hargatotal,
+     sales_barang.`harga` AS sales_barang_harga,
+     sales_barang.`satuan` AS sales_barang_satuan,
+     sales_barang.`subtotal` AS sales_barang_subtotal,
+     sales_barang.`kembalian` AS sales_barang_kembalian,
+     sales_barang.`hutang_sebelumnya` AS sales_barang_hutang_sebelumnya,
+     sales_barang.`idjual` AS sales_barang_idjual,
+     sales.`idsales` AS sales_idsales,
+     sales.`nama_pelanggan` AS sales_nama_pelanggan,
+     sales.`date` AS sales_date,
+     sales.`subtotal` AS sales_subtotal,
+     sales.`bayar` AS sales_bayar,
+     sales.`balance` AS sales_balance,
+     sales.`hutang` AS sales_hutang,
+     sales.`totalhutang` AS sales_totalhutang
+FROM
+     `sales_barang` sales_barang INNER JOIN `sales` sales ON sales_barang.`lastinsetid` = sales.`idsales`
+WHERE
+     sales.`idsales` = $P{noNota}]]>
+	</queryString>
+	<field name="sales_barang_lastinsetid" class="java.lang.Integer"/>
+	<field name="sales_barang_pelanggan" class="java.lang.String"/>
+	<field name="sales_barang_nama_barang" class="java.lang.String"/>
+	<field name="sales_barang_barcode" class="java.lang.String"/>
+	<field name="sales_barang_jumlah" class="java.lang.String"/>
+	<field name="sales_barang_hargatotal" class="java.lang.Integer"/>
+	<field name="sales_barang_harga" class="java.lang.String"/>
+	<field name="sales_barang_satuan" class="java.lang.String"/>
+	<field name="sales_barang_subtotal" class="java.lang.String"/>
+	<field name="sales_barang_kembalian" class="java.lang.String"/>
+	<field name="sales_barang_hutang_sebelumnya" class="java.lang.String"/>
+	<field name="sales_barang_idjual" class="java.lang.Integer"/>
+	<field name="sales_idsales" class="java.lang.Integer"/>
+	<field name="sales_nama_pelanggan" class="java.lang.String"/>
+	<field name="sales_date" class="java.lang.String"/>
+	<field name="sales_subtotal" class="java.lang.String"/>
+	<field name="sales_bayar" class="java.lang.String"/>
+	<field name="sales_balance" class="java.lang.String"/>
+	<field name="sales_hutang" class="java.lang.String"/>
+	<field name="sales_totalhutang" class="java.lang.String"/>
+	<group name="sales">
+		<groupFooter>
+			<band height="72">
+				<textField>
+					<reportElement x="109" y="3" width="108" height="11" uuid="07588197-571b-4729-be29-582aa5e8ab3f"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sales_subtotal}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="107" y="27" width="108" height="11" uuid="e3edd710-856d-41ae-afab-3a0d71b0d58e"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sales_hutang}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="109" y="61" width="108" height="11" uuid="ccbc90c1-c1d1-4b2c-9139-b44716b8ef55"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sales_balance}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="14" y="14" width="68" height="11" uuid="c9b3d249-633c-4b11-9982-d1d5ae65df48"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Tunai ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="14" y="27" width="68" height="11" uuid="1931f7b4-0f64-4dc6-9d75-9721d33351be"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Hutang Sekarang]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="14" y="3" width="40" height="11" uuid="7d88ff8e-5b45-41da-a3cc-ffb866125fed"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Subtotal]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="99" y="27" width="5" height="11" uuid="84a882f3-6d03-4ca6-bb8f-24436025f3fc"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[=]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="99" y="14" width="5" height="11" uuid="59a5738e-7f21-4c07-8b8a-7153fc77f11a"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[=]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="99" y="3" width="5" height="11" uuid="c20a14e1-6fa4-429d-97f1-09a59c968a17"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[=]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="99" y="61" width="5" height="11" uuid="1b243e1a-9839-4a1e-9f71-6c0a85821530"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[=]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="14" y="61" width="68" height="11" uuid="2f20d1ad-9570-4400-80ab-ada372a50ea8"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Total]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="109" y="14" width="108" height="11" uuid="3395c5d2-17ab-43c7-b8e4-8cd66d8382c9"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sales_bayar}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="109" y="1" width="108" height="1" uuid="5dd47181-eab5-44c9-a1f4-fb5ae44fde12"/>
+				</line>
+				<staticText>
+					<reportElement x="14" y="38" width="74" height="11" uuid="8d4e4ea1-fc26-4e0e-9830-1a42f76e6904"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Hutang Sebelumnya]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="108" y="38" width="107" height="11" uuid="52b67a45-92ec-4678-988e-676d85807943"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sales_barang_hutang_sebelumnya}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="108" y="25" width="109" height="1" uuid="cc24d49d-8c79-4021-8455-b3349f4c3e90"/>
+				</line>
+				<staticText>
+					<reportElement x="99" y="38" width="5" height="11" uuid="09706415-d3b7-4512-916b-06ae7ce5c5ef"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[=]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="14" y="50" width="74" height="11" uuid="9dafa398-ca42-4864-9a72-7a5f162b27c3"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Total Hutang]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="99" y="50" width="5" height="11" uuid="dc8f977c-bee6-4217-a75d-c11c7d1ceb38"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[=]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="109" y="50" width="107" height="11" uuid="e6d3d7cd-656d-4edc-b5c0-1cf52dd97b54"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sales_totalhutang}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="0" y="49" width="217" height="1" uuid="8ce16d7f-0166-4e42-b106-b1c3bdb4f55f"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="68" y="0" width="86" height="11" uuid="234b399c-f055-434b-9d8f-0ef7eccfb38c"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOKO LINA SIGONG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="68" y="11" width="86" height="11" uuid="b8160e33-96d3-4f74-a1e1-7d13c442f495"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[www.tokolina.my.id]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="24" width="216" height="1" uuid="491a187e-6e84-4fd4-b31c-c41428b6321a"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="72" y="11" width="100" height="11" uuid="74325555-d25b-4140-869a-95236533a823"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sales_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="0" width="100" height="11" uuid="c4e86898-4dd0-4198-bee8-f38bf6c00cad"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sales_barang_lastinsetid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="22" width="100" height="11" uuid="bbdcee72-2375-4f0a-a790-de06275e511f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sales_nama_pelanggan}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="35" width="217" height="1" uuid="43928cab-fb07-4617-9677-2a5de18eef2c"/>
+			</line>
+			<staticText>
+				<reportElement x="4" y="0" width="68" height="11" uuid="fa1cb835-4096-43f3-baa3-a0234c146343"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[No Transaksi    =]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="11" width="68" height="11" uuid="aa5f4b4c-0c4c-45f1-a768-d61e4006b432"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Tgl Transaksi    =]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="22" width="68" height="11" uuid="b821c656-6746-44eb-9d59-d806143201ec"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Konsumen        =]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="4" y="2" width="212" height="15" uuid="3c1585c8-f827-4dfc-a062-24913b7889d5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sales_barang_nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="4" y="19" width="14" height="11" uuid="024d5440-cb3d-41a9-b999-9c9b60bf2eb2"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sales_barang_jumlah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="19" width="26" height="11" uuid="481171f4-756f-49cb-9d38-028e0a815c7b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sales_barang_satuan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="43" y="19" width="11" height="11" uuid="4a539635-bee2-4a60-afa8-25b3331a296f"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="54" y="19" width="35" height="11" uuid="2e4e8e73-ddd8-49fd-a361-79e93bfe8ac7"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sales_barang_harga}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="94" y="19" width="10" height="11" uuid="d20f7156-7bb4-4981-aedc-589ad3728fe4"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="109" y="19" width="107" height="11" uuid="4c85c9d0-b8ad-4d3c-9db0-b5831e3429a0"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sales_barang_hargatotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+</jasperReport>
