@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="226" pageHeight="637" columnWidth="226" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="c6270791-4d36-46c2-9cd9-14b167a594ee">
+	<property name="ireport.zoom" value="3.797498335832415"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     pengguna.`identitas` AS pengguna_identitas,
+     pengguna.`nama_pelanggan` AS pengguna_nama_pelanggan,
+     pengguna.`alamat` AS pengguna_alamat,
+     pengguna.`hutang` AS pengguna_hutang
+FROM
+     `pengguna` pengguna]]>
+	</queryString>
+	<field name="pengguna_identitas" class="java.lang.Integer"/>
+	<field name="pengguna_nama_pelanggan" class="java.lang.String"/>
+	<field name="pengguna_alamat" class="java.lang.String"/>
+	<field name="pengguna_hutang" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="10" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="72" height="10" uuid="425585a0-6806-4207-afce-42c731d07955"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pengguna_nama_pelanggan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="0" width="117" height="10" uuid="3c21ac91-57ba-4d15-84f5-37e61720d0ce"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pengguna_hutang}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="73" y="0" width="9" height="10" uuid="424d9b3e-2960-47de-8e2d-e94e08fa8a0b"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>
