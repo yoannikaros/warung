@@ -30,5 +30,5 @@ end if;
 END
 
 3. Open Project
-4. Import Library
-5. Move Print to Local Disk C
+4. Import 'Plug' in Netbeans
+5. 'LocalC' Move to a Local Disk C for print
