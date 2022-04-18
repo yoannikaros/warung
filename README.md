@@ -1,5 +1,7 @@
 # Aplikasi warung
 Install
+Library: 
+common-collection 4-4.2
 
 1. Create database "Akrab_main" then Upload akrab_main.sql,
 2. Setting tringer like this:
